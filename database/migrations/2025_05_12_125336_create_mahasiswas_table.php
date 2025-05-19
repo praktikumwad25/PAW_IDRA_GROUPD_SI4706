@@ -10,6 +10,13 @@ return new class extends Migration {
      */
     public function up(): void
     {
+        Schema::create('Mahasiswa', function (Blueprint $table) {
+            $table->id();
+            $table->string( 'nama')->unique();
+            $table->string( 'nim');
+            $table->string( 'jurusan');
+            $table->string(  'fakultas');
+        });
         //TODO
         //Isi bagian ini dengan perintah untuk membuat struktur tabel 'mahasiswas'.
         //Gunakan Schema::create dan tambahkan kolom sesuai kebutuhan
