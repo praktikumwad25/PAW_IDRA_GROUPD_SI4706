@@ -18,4 +18,15 @@ class AuthController extends Controller
 
     //TODO
     //Buat fungsi logout agar user dapat keluar dari akunnya ketika tidak digunakan
+    public function signup(Request $request) 
+
+        $validator = Validator::make($request->all(), [
+            'name' => "required|string|max:225",
+            'email' => 'required|string|email|max:255|unique:users',
+            'password' => 'required|string|min:6|confirmed',
+
+
+        ])
 }
+
+

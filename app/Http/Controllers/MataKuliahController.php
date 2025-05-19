@@ -12,6 +12,16 @@ class MatakuliahController extends Controller
     //TODO ( Praktikan Nomor Urut 5 )
     // Tambahkan fungsi index yang akan menampilkan List Data Matakuliah
     // dan fungsi show yang akan menampilkan Detail Data Mahasiswa yang dipilih
+    public function index() {
+        $matakuliah = MataKuliah::latest()->get();
+        return new MatakuliahResource(true, 'list Data Matakuliah',$matakuliah);
+    }
+    public function show($id)
+    {
+        $matakuliah = MataKuliah::with('')->findorFail($id);
+        return new MatakuliahResource(true, 'list Detail Matakuliah',$matakuliah);
+
+    }
 
     //TODO ( Praktikan Nomor Urut 6 )
     // Tambahkan fungsi store yang akan menyimpan data MataKuliah baruurn new MatakuliahResource(true, 'Data Matakuliah Berhasil Ditambahkan!', $matakuliah)
